@@ -1,0 +1,75 @@
+###################################################################
+#
+# This is a makefile that is suitable for wxWidgets
+#
+# You need to modify some options below and just type 'make' in
+# terminal.
+#                             ---- created by misskanagi 2013/9/4
+###################################################################
+
+#basic configuration and compiler flags
+SHELL	 	= /bin/sh
+CC    		= gcc
+XX		= g++
+RES		= windres
+DEBUGFLAGS	= -g
+RELEASEFLAGS	= -O2 -s
+RESOURCEFLAGS	= `wx-config --rcflags`
+INCLUDES	= -Isrc/headers/
+CXXFLAGS	=  -Wall -Wextra `wx-config --cxxflags` $(INCLUDES)
+LIBS		= `wx-config --libs core,base,richtext,adv,html,xml` -s -mwindows
+#directory variables
+OBJDIR		= obj/
+HEADERDIR	= src/headers/
+SOURCEDIR	= src/sources/
+#sources and objects variables
+TARGET		= NumGame
+SOURCES		= $(shell echo $(SOURCEDIR)*.cpp)
+HEADERS		= $(shell echo $(HEADERDIR)*.h)
+OBJECTS		= $(subst $(SOURCEDIR),$(OBJDIR),$(SOURCES:.cpp=.o))
+
+
+
+
+#####################################################################
+# WARNING:
+# DO NOT MODIFY REST OF THIS FILE UNLESS YOU KOWN WHAT YOU ARE DOING!
+#####################################################################
+
+#command
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(XX) $(CXXFLAGS) $(DEBUGFLAGS) -o $(TARGET) $(OBJECTS) $(LIBS)
+
+release: $(SOURCES) $(HEADERS)
+	$(XX) $(CXXFLAGS) $(RELEASEFLAGS) -o $(TARGET) $(SOURCES) $(LIBS)
+
+$(OBJDIR)%.o: $(SOURCEDIR)%.cpp $(HEADERS)
+	$(XX) $(CXXFLAGS) $(DEBUGFLAGS) -c -o $@ $<
+
+project: *.h *.cpp
+	-mkdir obj
+	-mkdir src
+	-mkdir src/headers
+	-mkdir src/sources
+	mv *.h src/headers
+	mv *.cpp src/sources
+
+$(TARGET).app:Info.plist $(TARGET) $(TARGET).icns
+	-mkdir $(TARGET).app
+	-mkdir $(TARGET).app/Contents
+	-mkdir $(TARGET).app/Contents/MacOS
+	-mkdir $(TARGET).app/Contents/Resources
+	cp Info.plist $(TARGET).app/Contents/
+	cp $(TARGET) $(TARGET).app/Contents/MacOS/$(TARGET)
+	cp $(TARGET).icns $(TARGET).app/Contents/Resources/
+
+.PHONY : all release clean distclean project
+
+clean:
+	-rm -f $(TARGET)
+	-rm -f $(OBJECTS)
+
+distclean: clean
+	-rm -f $(TARGET)

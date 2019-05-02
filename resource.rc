@@ -1,0 +1,46 @@
+/************************************************
+题目：用单链表实现两个大整数的相加运算(实验2-12)
+单位：广西大学 计算机与电子信息学院
+作者：计算机类171班 赵敬一
+学号：1707310106
+所用软件：  Code::Blocks 17.12
+            GCC 5.1.0(MinGW32)
+            wxWidgets 3.1.1
+            wxGlade 0.8.3(Python 3.7)
+所用系统：Windows 10
+************************************************/
+#include "wx/msw/wx.rc"
+LANGUAGE 0, SUBLANG_NEUTRAL
+1 VERSIONINFO
+    FILEVERSION     1,0,0,0
+    PRODUCTVERSION  1,0,0,0
+    FILEOS          VOS_NT
+    FILETYPE        VFT_APP
+    FILESUBTYPE     VFT2_UNKNOWN
+    FILEFLAGSMASK   0
+    FILEFLAGS       0
+{
+    BLOCK "StringFileInfo"
+    {
+        BLOCK "080451C8"
+        {
+            VALUE "Comments", "Using Code::Blocks 17.12 with GCC 5.1.0 and wxWidgets 3.1.1"
+            VALUE "CompanyName", "Zhao Jingyi, GXU"
+            VALUE "FileDescription", "Large Numbers Adder"
+            VALUE "FileVersion", "1,0,0,0"
+            VALUE "InternalName", "exp2-12_wx"
+            VALUE "LegalCopyright", ""
+            VALUE "LegalTrademarks", ""
+            VALUE "OriginalFilename", "exp2-12_wx.exe"
+            VALUE "PrivateBuild", "By Zhao Jingyi Guangxi University"
+            VALUE "ProductName", "Large Numbers Adder"
+            VALUE "ProductVersion", "1,0,0,0"
+            VALUE "SpecialBuild", "By Zhao Jingyi, Guangxi University"
+        }
+    }
+    BLOCK "VarFileInfo"
+    {
+        VALUE "Translation", 0x0804, 0x51C8
+    }
+}
+
