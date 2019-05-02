@@ -2,8 +2,9 @@
 An GUI add calculator based on linked list. Data Struct homework. Using wxWidgets as GUI library.
 # 基本说明
 这是数据结构课程作业，本人不进行进一步的维护。
+作业要求是实现两个大整数的相加运算。具体要求将数字存入单链表。这一做法仅供作业学习，实际上在竞赛中也很少使用链表进行这样的操作。
 # 设计软硬件环境
-本设计采用C++语言开发，通过面向对象程序设计方法进行算法的描述。
+本设计采用C++语言版本C++ 11开发，通过面向对象程序设计方法进行算法的描述。
 软件环境使用Windows 10 x64操作系统编译和运行，并利用虚拟机软件测试证实了对于Windows XP x64和Windows 7 x86的兼容性。本设计程序不兼容Windows 2000.
 开发工具上，使用Code::Blocks作为开发的IDE，Windows下的编译器为GCC 5.1.0。Code::Blocks是一个开源、免费、跨平台的C++ IDE，能够满足C/C++编程的各种需求,是进行C++编程的理想工具。图形界面采用wxGlade进行设计。wxGlade是用wxPython开发的wxWidgets界面设计工具，支持直接导出cpp、py等代码文件。
 # 功能设计与描述
